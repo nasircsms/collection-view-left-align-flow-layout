@@ -39,7 +39,7 @@ class PathCell: UICollectionViewCell {
 	}
 }
 
-extension PathCell : UICollectionViewDataSource {
+extension PathCell: UICollectionViewDataSource {
 	func numberOfSections(in collectionView: UICollectionView) -> Int {
 		return 1
 	}

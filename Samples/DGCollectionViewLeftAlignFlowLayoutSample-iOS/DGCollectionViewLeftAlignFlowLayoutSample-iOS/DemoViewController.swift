@@ -18,7 +18,7 @@ class DemoViewController: UIViewController {
 		self.collectionView.register(UINib(nibName: String(describing: PathCell.self), bundle: Bundle.main),
 		                             forCellWithReuseIdentifier: PathCell.Identifier)
 		self.collectionView.register(UINib(nibName: String(describing: ReusableView.self), bundle: Bundle.main),
-		                             forSupplementaryViewOfKind: UICollectionElementKindSectionHeader,
+                                     forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
 		                             withReuseIdentifier: ReusableView.Identifier)
 		self.collectionView.delegate = self
 		self.collectionView.dataSource = self
@@ -44,7 +44,7 @@ extension DemoViewController: UICollectionViewDataSource {
 	}
 
 	func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-		guard let view: ReusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader,
+        guard let view: ReusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
 		                                                                               withReuseIdentifier: ReusableView.Identifier,
 		                                                                               for: indexPath) as? ReusableView else {
 

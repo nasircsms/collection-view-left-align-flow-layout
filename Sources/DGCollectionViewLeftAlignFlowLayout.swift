@@ -45,8 +45,8 @@ open class DGCollectionViewLeftAlignFlowLayout: UICollectionViewFlowLayout {
 		let firstInSection: Bool = indexPath.item == 0
 		guard !firstInSection else {
 			let section = attributes.indexPath.section
-			let x = self.delegate?.collectionView?(collectionView, layout: self, insetForSectionAt: section).left ?? self.sectionInset.left
-			attributes.frame.origin.x = x
+			let xValue = self.delegate?.collectionView?(collectionView, layout: self, insetForSectionAt: section).left ?? self.sectionInset.left
+			attributes.frame.origin.x = xValue
 			return attributes
 		}
 
@@ -56,16 +56,16 @@ open class DGCollectionViewLeftAlignFlowLayout: UICollectionViewFlowLayout {
 
 		guard !firstInRow else {
 			let section = attributes.indexPath.section
-			let x = self.delegate?.collectionView?(collectionView, layout: self, insetForSectionAt: section).left ?? self.sectionInset.left
-			attributes.frame.origin.x = x
+			let xValue = self.delegate?.collectionView?(collectionView, layout: self, insetForSectionAt: section).left ?? self.sectionInset.left
+			attributes.frame.origin.x = xValue
 			return attributes
 		}
 
 		let interItemSpacing: CGFloat = (collectionView.delegate as? UICollectionViewDelegateFlowLayout)?
 			.collectionView?(collectionView, layout: self, minimumInteritemSpacingForSectionAt: indexPath.section) ?? self.minimumInteritemSpacing
 
-		let x = previousFrame.origin.x + previousFrame.width + interItemSpacing
-		attributes.frame = CGRect(x: x,
+		let xValue = previousFrame.origin.x + previousFrame.width + interItemSpacing
+		attributes.frame = CGRect(x: xValue,
 		                          y: attributes.frame.origin.y,
 		                          width: attributes.frame.width,
 		                          height: attributes.frame.height)
